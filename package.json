@@ -2,13 +2,13 @@
   "name": "hebby",
   "displayName": "Hebby",
   "description": "A friendly animal buddy that reminds you to drink water, stretch and walk while you code.",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "publisher": "PonganeshP",
   "license": "MIT",
   "icon": "media/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-name/hebby"
+    "url": "https://github.com/PonganeshP/hebby"
   },
   "engines": {
     "vscode": "^1.85.0"
