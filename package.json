@@ -1,0 +1,115 @@
+{
+  "name": "hebby",
+  "displayName": "Hebby",
+  "description": "A friendly animal buddy that reminds you to drink water, stretch and walk while you code.",
+  "version": "0.0.2",
+  "publisher": "PonganeshP",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-name/hebby"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "wellness",
+    "break",
+    "reminder",
+    "water",
+    "health"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "hebby.menu",
+        "title": "Hebby: Open Menu"
+      },
+      {
+        "command": "hebby.toggle",
+        "title": "Hebby: Enable / Disable"
+      },
+      {
+        "command": "hebby.changeAvatar",
+        "title": "Hebby: Change Avatar"
+      },
+      {
+        "command": "hebby.rename",
+        "title": "Hebby: Rename Avatar"
+      },
+      {
+        "command": "hebby.remindNow",
+        "title": "Hebby: Remind Me Now (test)"
+      }
+    ],
+    "configuration": {
+      "title": "Hebby",
+      "properties": {
+        "hebby.waterAfterMinutes": {
+          "type": "number",
+          "default": 30,
+          "minimum": 1,
+          "description": "Minutes after start (or after the walk reminder) before asking about water."
+        },
+        "hebby.miniBreakAfterMinutes": {
+          "type": "number",
+          "default": 30,
+          "minimum": 1,
+          "description": "Minutes after the water reminder before suggesting a mini break."
+        },
+        "hebby.walkAfterMinutes": {
+          "type": "number",
+          "default": 60,
+          "minimum": 1,
+          "description": "Minutes after the mini break reminder before suggesting a walk."
+        },
+        "hebby.snoozeMinutes": {
+          "type": "number",
+          "default": 20,
+          "minimum": 1,
+          "description": "Minutes to wait when you choose 'Remind me later'."
+        },
+        "hebby.timeScale": {
+          "type": "number",
+          "default": 1,
+          "minimum": 0.001,
+          "description": "Testing only: 0.01 makes 30 minutes pass in ~18 seconds. Keep at 1 for normal use."
+        },
+        "hebby.popupStyle": {
+          "type": "string",
+          "enum": [
+            "avatar",
+            "notification"
+          ],
+          "default": "avatar",
+          "enumDescriptions": [
+            "The avatar runs onto the screen and asks the question.",
+            "A standard VS Code notification."
+          ],
+          "description": "How reminders are shown."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^2.24.0",
+    "typescript": "^5.3.3"
+  }
+}
